@@ -1,0 +1,4 @@
+Begin Object Class=/Script/Engine.Skeleton Name="R_Mallet_Skel" ExportPath="/Script/Engine.Skeleton'/Game/Weapons/Melee/Mallet/Mesh/R_Mallet_Skel.R_Mallet_Skel'"
+   BoneTree(0)=()
+   PreviewSkeletalMesh="/Game/Weapons/Melee/Mallet/Mesh/R_Mallet_SkelMesh.R_Mallet_SkelMesh"
+End Object
