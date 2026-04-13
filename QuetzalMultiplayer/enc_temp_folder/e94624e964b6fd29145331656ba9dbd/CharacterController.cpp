@@ -163,8 +163,6 @@ void ACharacterController::Tick(float deltaTime)
                         character->SetMaterialS(GhostMaterial);
                         character->BaseMaterial = GhostMaterial;
                         character->SpawnedActor = GhostSpawnedActor;
-                        //character->GetMesh()->SetSkeletalMesh(Atican_Skel);
-                        //character->GetMesh()->SetAnimInstanceClass(Atican_Anim);
 
                         break;
                     case 3: //Green

@@ -137,14 +137,6 @@ public:
 
 	APlayer_GeometryCollectionF* GoldSpawnedActor;
 
-	//Character Variable
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atican")
-	USkeletalMesh* Atican_Skel;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atican")
-	TSubclassOf<UAnimInstance> Atican_Anim;
-
-
 	bool holdHitAudio = false;
 
 protected:
