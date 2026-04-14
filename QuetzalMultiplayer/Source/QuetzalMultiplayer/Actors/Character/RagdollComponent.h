@@ -27,6 +27,8 @@ public:
 	void Server_GoRagdoll();
 	UFUNCTION(NetMulticast, Reliable, BlueprintCallable, meta = (AllowPrivateAccess = "true"))
 	void Multicast_GoRagdoll();
+
+	UFUNCTION(BlueprintCallable, meta = (AllowPrivateAccess = "true"))
 	void GoRagdoll();
 
 

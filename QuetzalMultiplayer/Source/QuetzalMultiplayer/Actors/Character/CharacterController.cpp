@@ -152,33 +152,38 @@ void ACharacterController::Tick(float deltaTime)
                     FVector Color;
                     switch (characterState->PlayerIndex)
                     {
-                    case 1: //Red
-                        Color = FVector(255, 10, 10);
+                    case 1: //Green
+                        Color = FVector(10, 255, 10);
                         character->SetMaterialS(BaseMaterial);
                         character->BaseMaterial = BaseMaterial;
                         character->SpawnedActor = BaseSpawnedActor;
                         break;
-                    case 2: //Blue
-                        Color = FVector(10, 10, 255);
-                        character->SetMaterialS(GhostMaterial);
-                        character->BaseMaterial = GhostMaterial;
-                        character->SpawnedActor = GhostSpawnedActor;
-                        //character->GetMesh()->SetSkeletalMesh(Atican_Skel);
-                        //character->GetMesh()->SetAnimInstanceClass(Atican_Anim);
+                    case 2: //Red
+                        Color = FVector(255, 10, 10);
+                        character->SetMaterialS(AticanMaterial);
+                        character->BaseMaterial = AticanMaterial;
+                        //character->SpawnedActor = GhostSpawnedActor;
+                        character->GetMesh()->SetSkeletalMesh(Atican_Skel);
+                        character->GetMesh()->SetAnimInstanceClass(Atican_Anim);
 
                         break;
-                    case 3: //Green
-                        Color = FVector(10, 255, 10);
+                    case 3: //Blue
+                        Color = FVector(10, 10, 255);
                         character->SetMaterialS(RainBowMaterial);
                         character->BaseMaterial = RainBowMaterial;
-                        character->SpawnedActor = RainBowSpawnedActor;
+                        //character->SpawnedActor = RainBowSpawnedActor;
+                        character->GetMesh()->SetSkeletalMesh(Cartoretti_Skel);
+                        character->GetMesh()->SetAnimInstanceClass(Cartoretti_Anim);
 
                         break;
                     case 4: //Yellow
                         Color = FVector(255, 255, 10);
                         character->SetMaterialS(GoldMaterial);
                         character->BaseMaterial = GoldMaterial;
-                        character->SpawnedActor = GoldSpawnedActor;
+                        //character->SpawnedActor = GoldSpawnedActor;
+                        character->GetMesh()->SetSkeletalMesh(Glassevedo_Skel);
+                        character->GetMesh()->SetAnimInstanceClass(Glassevedo_Anim);
+
 
                         break;
                     default:
@@ -805,4 +810,11 @@ void ACharacterController::onRespawn()
 
         HUD->respawn(); //TO REMOVE * UNUSED
     }
+}
+
+void ACharacterController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    DOREPLIFETIME(ACharacterController, Atican_Skel);
+    DOREPLIFETIME(ACharacterController, Atican_Anim);
 }

@@ -26,7 +26,7 @@ AMallet::AMallet():AWeaponMelee(),
 	RadialForceComp = CreateDefaultSubobject<UCustomRadialForceComponent>(TEXT("RadialForceComponent"));
 	RadialForceComp->SetupAttachment(RootComponent);
 	RadialForceComp->Radius = 300.f;
-	RadialForceComp->ImpulseStrength = 1500;
+	RadialForceComp->ImpulseStrength = 10000;
 	RadialForceComp->bImpulseVelChange = true;
 	RadialForceComp->bAutoActivate = false;
 	RadialForceComp->bIgnoreOwningActor = true;
@@ -305,6 +305,15 @@ void AMallet::MC_ThrowMallet_Implementation(FVector Direction)
 			attachedActor->ApplyStateChange(ECharacterState::STUNNED);
 		}
 	}
+
+	skeletalMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	skeletalMesh->SetSimulatePhysics(true);
+	skeletalMesh->SetNotifyRigidBodyCollision(true);
+	skeletalMesh->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+	
+	skeletalMesh->AddImpulse(Direction * (1000 * 20));
+	throwCollisionComp->SetGenerateOverlapEvents(true);
+
 	RadialForceComp->actorsToIgnore.Empty();
 	ClearAttackTimer(spinAttackCooldown);
 	ClearAttackTimer(spinAttackDuration);

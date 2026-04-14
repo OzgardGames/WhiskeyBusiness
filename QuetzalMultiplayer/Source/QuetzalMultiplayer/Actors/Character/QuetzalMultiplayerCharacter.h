@@ -112,7 +112,7 @@ public:
 	UMaterialInstanceDynamic* UnderCircleDynamicMaterialInst;
 
 	/** Ragdoll Component attached to player. */
-	UPROPERTY(EditAnywhere, Category = "Components")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Components")
 	class URagdollComponent* RagdollComponent;
 
 	/*************Damage System*****************/

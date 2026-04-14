@@ -46,6 +46,8 @@ public:
 	ACharacterController();
 	/***PLAYER INPUT***/
 
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* inputMappingContext;
 
@@ -126,7 +128,7 @@ public:
 
 	// Original material for the bullet
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Materials")
-	UMaterialInterface* GhostMaterial;
+	UMaterialInterface* AticanMaterial;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Materials")
 	APlayer_GeometryCollectionF* GhostSpawnedActor;
 
@@ -138,11 +140,24 @@ public:
 	APlayer_GeometryCollectionF* GoldSpawnedActor;
 
 	//Character Variable
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atican")
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Atican")
 	USkeletalMesh* Atican_Skel;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atican")
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Atican")
 	TSubclassOf<UAnimInstance> Atican_Anim;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Cartoretti")
+	USkeletalMesh* Cartoretti_Skel;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Cartoretti")
+	TSubclassOf<UAnimInstance> Cartoretti_Anim;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Glassevedo")
+	USkeletalMesh* Glassevedo_Skel;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Glassevedo")
+	TSubclassOf<UAnimInstance> Glassevedo_Anim;
+
 
 
 	bool holdHitAudio = false;

@@ -1225,9 +1225,9 @@ void AQuetzalMultiplayerCharacter::MC_ThrowHeldObject_Implementation()
     {
 
         // Throw action when object held is in throw notify
-        objectBeingHeld->ThrowThisObject(GetActorForwardVector(), 500.0f);
+        //objectBeingHeld->ThrowThisObject(GetActorForwardVector(), 700.0f);
 
-        objectBeingHeld = nullptr;
+        //objectBeingHeld = nullptr;
 
         myAnimInstance->bIsCarrying = false;//TODO maybe call this outside the if statement
         myAnimInstance->bIsThrowingObject = true;
